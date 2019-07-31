@@ -1,5 +1,5 @@
-import AgoraRTM from 'agora-rtm-sdk';
-import EventEmitter from 'events';
+import AgoraRTM from "agora-rtm-sdk";
+import EventEmitter from "events";
 
 export default class RTMClient extends EventEmitter {
   constructor() {
@@ -15,14 +15,12 @@ export default class RTMClient extends EventEmitter {
 
   // subscribe client events
   subscribeClientEvents() {
-    const clientEvents = [
-      "ConnectionStateChanged",
-      "MessageFromPeer",
-    ];
-    clientEvents.forEach((eventName) => {
+    const clientEvents = ["ConnectionStateChanged", "MessageFromPeer"];
+    clientEvents.forEach(eventName => {
       this.client.on(eventName, (...args) => {
         console.log("emit ", eventName, ...args);
         // log event message
+        console.log(...args);
         this.emit(eventName, ...args);
       });
     });
@@ -30,60 +28,59 @@ export default class RTMClient extends EventEmitter {
 
   // subscribe channel events
   subscribeChannelEvents(channelName) {
-    const channelEvents = [
-      "ChannelMessage",
-      "MemberJoined",
-      "MemberLeft"
-    ];
-    channelEvents.forEach((eventName) => {
+    const channelEvents = ["ChannelMessage", "MemberJoined", "MemberLeft"];
+    channelEvents.forEach(eventName => {
       this.channels[channelName].channel.on(eventName, (...args) => {
         console.log("emit ", eventName, args);
-        this.emit(eventName, {channelName, args: args});
+        this.emit(eventName, { channelName, args: args });
       });
     });
   }
 
   async login(accountName, token) {
     this.accountName = accountName;
-    return this.client.login({uid: this.accountName, token});
+    return this.client.login({ uid: this.accountName, token });
   }
 
   async logout() {
     return this.client.logout();
   }
-
-  async joinChannel(name) {
-    console.log("joinChannel", name)
+  /*user edit*/
+  async joinChannel(name, accountName) {
+    console.log("joinChannel", name);
     const channel = this.client.createChannel(name);
     this.channels[name] = {
       channel,
       joined: false // channel state
-    }
-    this.subscribeChannelEvents(name)
+    };
+    this.subscribeChannelEvents(name);
     return channel.join();
   }
 
   async leaveChannel(name) {
     console.log("leaveChannel", name);
-    if (!this.channels[name] ||
-      (this.channels[name]
-        && !this.channels[name].joined)) return;
+    if (
+      !this.channels[name] ||
+      (this.channels[name] && !this.channels[name].joined)
+    )
+      return;
     return this.channels[name].channel.leave();
   }
 
   async sendChannelMessage(text, channelName) {
-  console.log("sendChannelMessage", text, channelName);
-    if (!this.channels[channelName] || !this.channels[channelName].joined) return;
-    return this.channels[channelName].channel.sendMessage({text});
+    console.log("sendChannelMessage", text, channelName);
+    if (!this.channels[channelName] || !this.channels[channelName].joined)
+      return;
+    return this.channels[channelName].channel.sendMessage({ text });
   }
 
   async sendPeerMessage(text, peerId) {
     console.log("sendPeerMessage", text, peerId);
-    return this.client.sendMessageToPeer({text}, peerId.toString());
+    return this.client.sendMessageToPeer({ text }, peerId.toString());
   }
 
-  async queryPeersOnlineStatus(memberId) {
-    console.log("queryPeersOnlineStatus", memberId);
-    return this.client.queryPeersOnlineStatus([memberId]);
+  async queryPeersOnlineStatus(params) {
+    console.log("queryPeersOnlineStatus", params);
+    return this.client.queryPeersOnlineStatus([params.memberId]);
   }
 }

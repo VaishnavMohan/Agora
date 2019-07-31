@@ -1,8 +1,4 @@
-# Web Tutorial For Webpack - Agora Web RTM
 
-*English | [中文](README.zh.md)*
-
-This tutorial shows you how to quickly integrate Agora Web RTM SDK with the Agora sample app.
 This demo contains following features:
 
 - Login & Logout:
@@ -10,6 +6,7 @@ This demo contains following features:
 - Query Peer User online status:
 - Send P2P Message:
 - Send Channel Message:
+- Displays list of channel members
 
 ## Prerequisites
 
