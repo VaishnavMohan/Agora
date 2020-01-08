@@ -10,19 +10,19 @@ html, body {
 }
 
 $base-margin-left: 20px;
-$theme-primary: rgb(30, 229, 106);
-$theme-secondary: #424242;
+$theme-primary: rgb(0, 255, 255);
+$theme-secondary: #a77d7d;
 
 .toast.info-toast {
-  background-color: #5bdb34;
+  background-color: #db71b2;
 }
 
 .toast.notice-toast {
-  background-color: #bc5e07;
+  background-color: #af8a67;
 }
 
 .toast.error-toast {
-  background-color: #e73c92;
+  background-color: #725cc2;
 }
 
 .agora-theme {
@@ -30,7 +30,7 @@ $theme-secondary: #424242;
     border: none;
   }
   .btn-primary {
-    color: rgb(255, 255, 255);
+    color: rgb(167, 179, 62);
     background-color: $theme-primary !important;
   }
   .agora-github-pin {
@@ -41,7 +41,7 @@ $theme-secondary: #424242;
     right: 0;
   }
   .agora-primary-bg {
-    color: #fff;
+    color: rgb(209, 183, 183);
     background-color: $theme-primary !important;
     align-items: center;
   }
@@ -60,7 +60,7 @@ $theme-secondary: #424242;
     border: 1px solid $theme-secondary !important;
   }
   .agora-secondary-bg {
-    color: #fff;
+    color: rgb(169, 228, 210);
     background-color: $theme-secondary !important;
     align-items: center;
   }
