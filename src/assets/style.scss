@@ -41,7 +41,7 @@ $theme-secondary: #a77d7d;
     right: 0;
   }
   .agora-primary-bg {
-    color: rgb(209, 183, 183);
+    color: rgb(255, 255, 255);
     background-color: $theme-primary !important;
     align-items: center;
   }
@@ -89,8 +89,8 @@ $theme-secondary: #a77d7d;
   .video-view, 
   .video-placeholder,
   #local_stream, #local_video_info {
-    width: 480px;
-    height: 320px;
+    width: 380px;
+    height: 220px;
   }
   
   .video-profile {
