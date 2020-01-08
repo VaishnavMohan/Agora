@@ -10,7 +10,7 @@ html, body {
 }
 
 $base-margin-left: 20px;
-$theme-primary: rgb(30, 229, 106);
+$theme-primary: rgb(38, 0, 255);
 $theme-secondary: #424242;
 
 .toast.info-toast {
@@ -30,7 +30,7 @@ $theme-secondary: #424242;
     border: none;
   }
   .btn-primary {
-    color: rgb(255, 255, 255);
+    color: rgb(47, 0, 255);
     background-color: $theme-primary !important;
   }
   .agora-github-pin {
@@ -60,7 +60,7 @@ $theme-secondary: #424242;
     border: 1px solid $theme-secondary !important;
   }
   .agora-secondary-bg {
-    color: #fff;
+    color: rgb(255, 255, 255);
     background-color: $theme-secondary !important;
     align-items: center;
   }
@@ -102,7 +102,7 @@ $theme-secondary: #424242;
     z-index: 2;
     color: #fff;
     opacity: 0.9;
-    text-shadow: black 0.1em 0.1em 0.2em;
+    text-shadow: rgb(255, 255, 255) 0.1em 0.1em 0.2em;
     font-size: 10px;
   }
 
