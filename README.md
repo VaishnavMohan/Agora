@@ -9,7 +9,7 @@ Sample Images on Local Machine:
 ## Prerequisites
 
 - nodejs LTS
-- A web browser
+- A web browser.
 
 ## Quick Start
 
